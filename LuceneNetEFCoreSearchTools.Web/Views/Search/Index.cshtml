@@ -18,7 +18,7 @@
 {
     @if (Model.UserSearchCollection != null && Model.UserSearchCollection.Results.Any())
     {
-        <h2>Users found: @Model.UserSearchCollection.TotalHits</h2>
+        <h2>Users found: @Model.UserSearchCollection.Results.Count</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -50,7 +50,7 @@
     }
     @if (Model.CitySearchCollection != null && Model.CitySearchCollection.Results.Any())
     {
-        <h2>Cities found: @Model.CitySearchCollection.TotalHits</h2>
+        <h2>Cities found: @Model.CitySearchCollection.Results.Count</h2>
         <table class="table">
             <thead>
                 <tr>

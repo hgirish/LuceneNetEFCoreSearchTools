@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using LuceneNetEFCoreSearchTools.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LuceneNetEFCoreSearchTools.Web.Controllers
 {
@@ -56,11 +57,12 @@ namespace LuceneNetEFCoreSearchTools.Web.Controllers
 
 
         }
-
+        [Authorize]
         public IActionResult AddUser()
         {
             return View();
         }
+        [Authorize]
         [HttpPost][ValidateAntiForgeryToken]
         public IActionResult AddUser(User user)
         {
