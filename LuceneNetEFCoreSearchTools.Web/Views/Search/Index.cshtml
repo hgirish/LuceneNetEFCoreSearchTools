@@ -1,0 +1,79 @@
+﻿@model SearchResultViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<h4>@ViewBag.Message</h4>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Index" class="form-inline">
+    <input type="text" name="q" id="q" required />
+    <button type="submit" class="btn btn-sm btn-success">Search</button>
+</form>
+
+@if (Model != null)
+{
+    @if (Model.UserSearchCollection != null && Model.UserSearchCollection.Results.Any())
+    {
+        <h2>Users found: @Model.UserSearchCollection.TotalHits</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Email</th>
+                    <th>Job Title</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.UserSearchCollection.Results)
+                {
+                    var user = item.Entity;
+                    <tr>
+                        <td>@user.FirstName</td>
+                        <td>@user.Surname</td>
+                        <td>@user.Email</td>
+                        <td>@user.JobTitle</td>
+                        <td>@item.Score</td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    }
+    @if (Model.CitySearchCollection != null && Model.CitySearchCollection.Results.Any())
+    {
+        <h2>Cities found: @Model.CitySearchCollection.TotalHits</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Country</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CitySearchCollection.Results)
+                {
+                    var city = item.Entity;
+                    <tr>
+                        <td>@city.Name</td>
+                        <td>@city.Code</td>
+                        <td>@city.Country</td>
+                        <td>@item.Score</td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    }
+}

@@ -40,8 +40,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
-
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
             searchProvider.Initialize(options, context);
 
             searchProvider.CreateIndex();
@@ -58,7 +57,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
 
 
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -80,7 +79,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -112,7 +111,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -137,7 +136,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -159,7 +158,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -185,7 +184,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
 
@@ -208,7 +207,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(options, context);
             searchProvider.CreateIndex();
@@ -223,7 +222,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
             searchProvider.Initialize(options, context);
             searchProvider.CreateIndex();
 
@@ -239,7 +238,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
             searchProvider.Initialize(options, context);
             searchProvider.CreateIndex();
 
@@ -256,7 +255,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
 
             User jc = new User()
             {
@@ -292,7 +291,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
             searchProvider.Initialize(options, context);
             searchProvider.CreateIndex();
 
@@ -325,7 +324,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
         {
             InitializeContext();
             SearchableContextProvider<TestDbContext> searchProvider = new SearchableContextProvider<TestDbContext>();
-            LuceneIndexerOptions options = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions options = new LuceneIndexerOptions { UseRamDirectory = true };
             searchProvider.Initialize(options, context);
             searchProvider.CreateIndex();
 
@@ -359,7 +358,7 @@ namespace LuceneNetEFCoreSearchTools.Tests
             InitializeContext();
             SearchableContextProvider<MockNonIndexableContext> searchProvider = new SearchableContextProvider<MockNonIndexableContext>();
 
-            LuceneIndexerOptions indexerOptions = new LuceneIndexerOptions(null, null, true);
+            LuceneIndexerOptions indexerOptions = new LuceneIndexerOptions { UseRamDirectory = true };
 
             searchProvider.Initialize(indexerOptions);
 

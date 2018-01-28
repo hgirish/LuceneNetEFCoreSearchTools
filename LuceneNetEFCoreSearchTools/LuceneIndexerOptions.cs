@@ -2,18 +2,18 @@
 {
     public class LuceneIndexerOptions
     {
-        public bool UseRamDirectory { get; protected set; }
-        public string Path { get; protected set; }
-        public int? MaximumFieldLength { get; protected set; }
+        public bool UseRamDirectory { get;  set; }
+        public string Path { get;  set; }
+        public int? MaximumFieldLength { get;  set; }
 
-        public LuceneIndexerOptions(
-            string path,
-            int? maximumFieldLength = null,
-            bool useRamDirectory = false)
-        {
-            Path = path;
-            MaximumFieldLength = maximumFieldLength;
-            UseRamDirectory = useRamDirectory;
-        }
+        //public LuceneIndexerOptions(
+        //    string path,
+        //    int? maximumFieldLength = null,
+        //    bool useRamDirectory = false)
+        //{
+        //    Path = path;
+        //    MaximumFieldLength = maximumFieldLength;
+        //    UseRamDirectory = useRamDirectory;
+        //}
     }
 }
