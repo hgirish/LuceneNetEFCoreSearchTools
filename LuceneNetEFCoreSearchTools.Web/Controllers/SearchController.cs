@@ -36,7 +36,7 @@ namespace LuceneNetEFCoreSearchTools.Web.Controllers
                 ModelState.AddModelError("q", "search  string required");
                 return View();
             }
-            q = q + "*";
+           // q = q + "~";
             _searchProvider.Initialize(_luceneIndexerOptions, _appDbContext);
             SearchOptions searchOptions = new SearchOptions(q, "FirstName,Surname,Email,JobTitle,Name,Country");
 

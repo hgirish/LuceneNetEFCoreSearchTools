@@ -27,7 +27,18 @@ namespace LuceneNetEFCoreSearchTools
             LuceneIndexSearcher.directory = directory;
             LuceneIndexSearcher.analyzer = analyzer;
         }
+       private BooleanQuery GetFuzzyquery(MultiFieldQueryParser parser, string searchText)
+        {
+            var finalQuery = new BooleanQuery();
 
+            string[] terms = searchText.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var term in terms)
+            {
+                finalQuery.Add(parser.Parse(term.Replace("~", "") + "~"), Occur.MUST);
+            }
+            return finalQuery;
+        }
         private ILuceneSearchResultCollection PerformSearch(SearchOptions options, bool safeSearch)
         {
             // Results collection
@@ -57,7 +68,9 @@ namespace LuceneNetEFCoreSearchTools
 
                     // Multifield search
                     MultiFieldQueryParser multiFieldQueryParser = new MultiFieldQueryParser(Lucene.Net.Util.LuceneVersion.LUCENE_48, options.Fields.ToArray(), analyzer, options.Boosts);
-                    query = multiFieldQueryParser.Parse(options.SearchText);
+                    //query = multiFieldQueryParser.Parse(options.SearchText);
+                    query = GetFuzzyquery(multiFieldQueryParser, options.SearchText);
+
                 }
 
                 List<SortField> sortFields = new List<SortField>();
