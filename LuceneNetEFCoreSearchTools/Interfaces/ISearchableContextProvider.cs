@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace LuceneNetEFCoreSearchTools.Interfaces
 {
-    
+
     public interface ISearchableContextProvider<TEntity> where TEntity :  class, new()
     {
         TEntity Context { get; }

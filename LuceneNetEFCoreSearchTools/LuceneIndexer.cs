@@ -73,6 +73,7 @@ namespace LuceneNetEFCoreSearchTools
 
                 // flush all in memory buffered changes and write them
                 writer.Flush(true, true);
+                
             }
         }
 
@@ -91,8 +92,17 @@ namespace LuceneNetEFCoreSearchTools
 
             using (var writer = new IndexWriter(directory, config))
             {
-                writer.DeleteAll();
-                if (commit == true) { writer.Commit(); }
+
+                try
+                {
+                    writer.DeleteAll();
+                    if (commit == true) { writer.Commit(); }
+                    writer.Flush(true, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -167,7 +177,7 @@ namespace LuceneNetEFCoreSearchTools
             }
             catch (IndexNotFoundException ex)
             {
-
+                directory.ClearLock("write.lock");
                 Console.WriteLine(ex.Message);
                 return 0;
             }
